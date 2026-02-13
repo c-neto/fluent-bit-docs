@@ -233,6 +233,19 @@ The following are detailed descriptions for the metrics collected by the storage
 | `fluentbit_output_upstream_total_connections` | name: the name or alias for the output instance | The sum of the connection count of each output plugins. | gauge | bytes |
 | `fluentbit_output_upstream_busy_connections` | name: the name or alias for the output instance | The sum of the connection count in a busy state of each output plugins.                                                                                                  | gauge   | bytes   |
 
+#### Tail input plugin metrics
+
+The following are detailed descriptions for the metrics collected when using the [Tail](../pipeline/inputs/tail.md) Input Plugin.
+
+| Metric Name                                 | Labels                       | Description   | Type    | Unit    |
+|---------------------------------------------|------------------------------|---------------|---------|---------|
+| `fluentbit_input_files_closed_total`        | name: the name or alias for the input instance | Total number of closed files. | counter | records |
+| `fluentbit_input_files_opened_total`        | name: the name or alias for the input instance | Total number of opened files. | counter | records |
+| `fluentbit_input_files_rotated_total`       | name: the name or alias for the input instance | Total number of rotated files. | counter | records |
+| `fluentbit_input_long_line_skipped_total`   | name: the name or alias for the input instance | Total number of skipped occurrences for long lines. This metric is only created when `skip_long_lines` is set to `true`. | counter | records |
+| `fluentbit_input_long_line_truncated_total` | name: the name or alias for the input instance | Total number of truncated occurrences for long lines. This metric is only created when `truncate_long_lines` is set to `true`. | counter | records |
+| `fluentbit_input_multiline_truncated_total` | name: the name or alias for the input instance. | Total number of truncated occurrences for multiline. This metric is only created when `multiline.parser` is defined. | counter | records |
+
 ### Output latency metric
 
 Introduced in Fluent Bit 4.0.6, the `fluentbit_output_latency_seconds` histogram metric captures end-to-end latency from the time a chunk is created by an input plugin until it's successfully delivered by an output plugin. This provides observability into chunk-level pipeline performance and helps identify slowdowns or bottlenecks in the output path.

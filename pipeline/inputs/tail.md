@@ -569,3 +569,7 @@ pipeline:
 
 {% endtab %}
 {% endtabs %}
+
+### Input tail metrics
+
+The Tail input plugin provides several dedicated metrics related to skipped long lines, truncated lines, and others. For detailed information about available metrics and how to use them, see [Monitoring](../../administration/monitoring.md).
